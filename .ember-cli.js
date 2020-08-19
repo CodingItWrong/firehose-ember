@@ -1,6 +1,6 @@
-const { setEdition } = require('@ember/edition-utils')
+const { setEdition } = require('@ember/edition-utils');
 
-setEdition('octane')
+setEdition('octane');
 
 module.exports = {
   /**
@@ -11,4 +11,4 @@ module.exports = {
   */
   disableAnalytics: false,
   'output-path': '../public',
-}
+};
