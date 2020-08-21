@@ -1,6 +1,8 @@
-<div>
+<div class="overflow-hidden">
   <span class="link-title p-name" data-test-link-title>
-    <a href={{ this.link.url }} target="_blank" rel="noopener noreferrer">{{ this.link.title }}</a>
+    <a href={{ this.link.url }} target="_blank" rel="noopener noreferrer">
+      {{ this.link.title }}
+    </a>
   </span>
   {{#if this.session.isAuthenticated}}
     {{#if this.link.public}}
