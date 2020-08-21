@@ -17,10 +17,11 @@
         <BsButton
           @buttonType="submit"
           @type="primary"
+          @disabled={{this.isSaving}}
           class="btn-block"
           data-test-add-button
         >
-          Add
+          {{if this.isSaving "Adding…" "Add"}}
         </BsButton>
       </div>
     </div>
