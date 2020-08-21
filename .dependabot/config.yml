@@ -4,10 +4,6 @@ update_configs:
     directory: "/"
     update_schedule: "monthly"
     ignored_updates:
-      # 4.x breaks autocapitalize
-      - match:
-          dependency_name: "ember-bootstrap"
-          version_requirement: "*"
       # Update core ember dependencies with ember-cli-update instead
       - match:
           dependency_name: "ember-cli"
