@@ -8,17 +8,22 @@ export default class AddLinkFormComponent extends Component {
 
   @tracked url;
   @tracked isSaving = false;
+  @tracked error = null;
 
   @action
   async handleAdd(event) {
     event.preventDefault();
     let link = this.store.createRecord('bookmark', { url: this.url });
 
+    this.error = null;
     this.isSaving = true;
-    await link.save();
+    try {
+      await link.save();
+      this.resetForm();
+    } catch (e) {
+      this.error = 'An error occurred saving the link.';
+    }
     this.isSaving = false;
-
-    this.resetForm();
 
     const { onAdd } = this.args;
     onAdd();
