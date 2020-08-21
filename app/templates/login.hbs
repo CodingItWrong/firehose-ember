@@ -14,18 +14,24 @@
   <Form.element
     @controlType="text"
     @label="Email"
-    @placeholder="Email"
     @property="email"
-    @autocapitalize="off"
     data-test-email-field
-  />
+    as |el|
+  >
+    <el.control
+      placeholder="Email"
+      autocapitalize="off"
+    />
+  </Form.element>
   <Form.element
     @controlType="password"
     @label="Password"
-    @placeholder="Password"
     @property="password"
     data-test-password-field
-  />
+    as |el|
+  >
+    <el.control placeholder="Password" />
+  </Form.element>
   <div class="actions">
     <BsButton
       @buttonType="submit"
