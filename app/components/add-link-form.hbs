@@ -17,8 +17,8 @@
         <BsButton
           @buttonType="submit"
           @type="primary"
-          @disabled={{this.isSaving}}
           class="btn-block"
+          disabled={{this.isSaving}}
           data-test-add-button
         >
           {{if this.isSaving "Adding…" "Add"}}
