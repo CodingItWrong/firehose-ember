@@ -19,9 +19,9 @@
   />
   <Form.element
     @controlType="text"
-    @label="Source"
-    @property="source"
-    data-test-source
+    @label="Tags"
+    @property="tag_list"
+    data-test-tags
     as |el|
   >
     <el.control
@@ -31,9 +31,9 @@
   </Form.element>
   <Form.element
     @controlType="text"
-    @label="Tags"
-    @property="tag_list"
-    data-test-tags
+    @label="Source"
+    @property="source"
+    data-test-source
     as |el|
   >
     <el.control
