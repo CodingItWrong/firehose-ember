@@ -5361,10 +5361,10 @@ ember-auto-import@^1.5.3:
     walk-sync "^0.3.3"
     webpack "~4.28"
 
-ember-bootstrap@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-4.0.1.tgz#158f3275cd080141db56c12863e195047f1aca83"
-  integrity sha512-aaMJbnSmBTjPz16MIyWhUsynoLn6/kFnRVWOlMRRS7hV/DoF1Xyto9QbxMXgrzbXI1iyC5vEefqdgeciDsZJwg==
+ember-bootstrap@4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/ember-bootstrap/-/ember-bootstrap-4.1.1.tgz#5893b83758b1bee286cfdfa63f3b2c4192b8ffe0"
+  integrity sha512-N2Ayp7UJxvTfDX8gjHLd1Ay4KTUagE8SojLw4/t2Zrqeh8gr4gLDjvOEnInTY97IXszDHy23Wexk9TTW9OpAVw==
   dependencies:
     "@ember/render-modifiers" "^1.0.2"
     "@embroider/macros" "^0.21.0"
@@ -5385,7 +5385,7 @@ ember-bootstrap@4.0.1:
     ember-in-element-polyfill "^1.0.0"
     ember-on-helper "^0.1.0"
     ember-popper "^0.11.3"
-    ember-ref-bucket "^1.0.0"
+    ember-ref-bucket "^1.0.1"
     ember-style-modifier "^0.6.0"
     findup-sync "^4.0.0"
     fs-extra "^9.0.1"
@@ -6150,7 +6150,7 @@ ember-raf-scheduler@^0.1.0:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-ref-bucket@^1.0.0:
+ember-ref-bucket@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ember-ref-bucket/-/ember-ref-bucket-1.0.1.tgz#e0287c1209fc255d8bfa2cc35f11e64ddc438114"
   integrity sha512-mHnCkcBJn4KUM5bUin0GWhyOtjFzzDBy7VKfoZ6PypkXLhP3vw479OL89sm9x4mTKWZ8e173GnjwyRiWZkWAiw==
