@@ -1,16 +1,15 @@
 import Component from '@glimmer/component';
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import BufferedProxy from 'ember-buffered-proxy/proxy';
 
 export default class LinkFormComponent extends Component {
   @service store;
 
-  @computed('args.link')
   get buffer() {
-    return BufferedProxy.create({
+    return (this._buffer ??= BufferedProxy.create({
       content: this.args.link,
-    });
+    }));
   }
 
   @action
