@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { action, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import BufferedProxy from 'ember-buffered-proxy/proxy';
@@ -6,28 +6,30 @@ import BufferedProxy from 'ember-buffered-proxy/proxy';
 export default class LinkFormComponent extends Component {
   @service store;
 
-  @computed('link')
+  @computed('args.link')
   get buffer() {
     return BufferedProxy.create({
-      content: this.link,
+      content: this.args.link,
     });
   }
 
   @action
   async handleSave() {
+    const { link, onSave } = this.args;
+
     this.buffer.applyBufferedChanges();
-    await this.link.save();
-    if (this.link.id) {
+    await link.save();
+    if (link.id) {
       // do not run in tests
-      await this.store.findRecord('bookmark', this.link.id, {
+      await this.store.findRecord('bookmark', link.id, {
         include: 'tags',
       });
     }
-    this.onSave();
+    onSave();
   }
 
   @action
   handleCancel() {
-    this.onCancel();
+    this.args.onCancel();
   }
 }
