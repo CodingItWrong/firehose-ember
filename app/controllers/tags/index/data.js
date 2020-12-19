@@ -1,9 +1,8 @@
 import Controller from '@ember/controller';
-import { sort } from '@ember/object/computed';
+import sortBy from 'lodash/sortBy';
 
 export default class TagsIndexController extends Controller {
-  tagSorting = Object.freeze(['name']);
-
-  @sort('model', 'tagSorting')
-  sortedTags;
+  get sortedTags() {
+    return sortBy(this.model.toArray(), ['name']);
+  }
 }
