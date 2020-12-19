@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { sort } from '@ember/object/computed';
 import { tracked } from '@glimmer/tracking';
 import sortBy from 'lodash/sortBy';
@@ -30,13 +31,13 @@ export default class IndexDataController extends Controller {
 
   @action
   nextPage() {
-    this.incrementProperty('pageNumber');
+    this.pageNumber += 1;
     this.scrollToTop();
   }
 
   @action
   prevPage() {
-    this.decrementProperty('pageNumber');
+    this.pageNumber -= 1;
     this.scrollToTop();
   }
 }
