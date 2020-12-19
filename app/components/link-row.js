@@ -1,29 +1,28 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { tagName } from '@ember-decorators/component';
 
-export default
-@tagName('')
-class LinkRow extends Component {
+export default class LinkRow extends Component {
   @service session;
 
-  editing = false;
+  @tracked editing = false;
 
   get showLink() {
-    if (typeof this.showIfRead === 'undefined') {
+    const { showIfRead, link } = this.args;
+    if (typeof showIfRead === 'undefined') {
       return true;
     }
-    return this.showIfRead === this.link.read;
+    return showIfRead === link.read;
   }
 
   @action
   edit() {
-    this.set('editing', true);
+    this.editing = true;
   }
 
   @action
   finishEditing() {
-    this.set('editing', false);
+    this.editing = false;
   }
 }
