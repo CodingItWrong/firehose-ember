@@ -6,13 +6,13 @@ import { tracked } from '@glimmer/tracking';
 export default class LoginController extends Controller {
   @service session;
 
+  @tracked email = '';
+  @tracked password = '';
   @tracked errorMessage;
 
   resetLoginForm() {
-    this.setProperties({
-      email: '',
-      password: '',
-    });
+    this.email = '';
+    this.password = '';
   }
 
   @action
