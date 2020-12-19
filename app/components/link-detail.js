@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
@@ -7,20 +7,24 @@ export default class LinkDetail extends Component {
 
   @action
   async markRead(event) {
+    const { link } = this.args;
+
     if (event) {
       event.preventDefault();
     }
-    this.link.set('read', true);
-    await this.link.save();
+    link.set('read', true);
+    await link.save();
   }
 
   @action
   async markUnread(event) {
+    const { link } = this.args;
+
     if (event) {
       event.preventDefault();
     }
-    this.link.set('read', false);
-    await this.link.save();
+    link.set('read', false);
+    await link.save();
   }
 
   @action
@@ -28,7 +32,7 @@ export default class LinkDetail extends Component {
     if (event) {
       event.preventDefault();
     }
-    this.onEdit();
+    this.args.onEdit();
   }
 
   @action
@@ -36,6 +40,6 @@ export default class LinkDetail extends Component {
     if (event) {
       event.preventDefault();
     }
-    await this.link.destroyRecord();
+    await this.args.link.destroyRecord();
   }
 }

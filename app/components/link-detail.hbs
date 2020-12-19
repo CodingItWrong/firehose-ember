@@ -1,28 +1,28 @@
 <div class="overflow-hidden">
   <span class="link-title p-name" data-test-link-title>
-    <a href={{ this.link.url }} target="_blank" rel="noopener noreferrer">
-      {{ this.link.title }}
+    <a href={{ @link.url }} target="_blank" rel="noopener noreferrer">
+      {{ @link.title }}
     </a>
   </span>
   {{#if this.session.isAuthenticated}}
-    {{#if this.link.public}}
+    {{#if @link.public}}
       <span>Public</span>
     {{/if}}
   {{/if}}
 </div>
-{{#if this.link.comment}}
-  <p class="e-content">{{ this.link.comment }}</p>
+{{#if @link.comment}}
+  <p class="e-content">{{ @link.comment }}</p>
 {{/if}}
 <div class="float-left text-muted">
-  {{domain this.link.url}}
-  {{#if this.link.tags}}
+  {{domain @link.url}}
+  {{#if @link.tags}}
     |
-    {{#each this.link.tags as |tag|}}
+    {{#each @link.tags as |tag|}}
       <LinkTo @route="tags.show" @model={{tag.name}} @classNames="p-category">{{ tag.name }}</LinkTo>
     {{/each}}
   {{/if}}
-  {{#if this.link.source}}
-    | {{format-source this.link.source}}
+  {{#if @link.source}}
+    | {{format-source @link.source}}
   {{/if}}
 </div>
 {{#if this.session.isAuthenticated}}
@@ -33,7 +33,7 @@
         class="d-block d-md-none"
       />
       <Dd.menu @align="right" as |Menu|>
-        {{#if this.link.read}}
+        {{#if @link.read}}
           <Menu.item>
             <a
               class="dropdown-item"
@@ -75,7 +75,7 @@
       </Dd.menu>
     </BsDropdown>
     <div class="d-none d-md-block">
-      {{#if this.link.read}}
+      {{#if @link.read}}
         <BsButton
           @type="light"
           @onClick={{fn this.markUnread}}
