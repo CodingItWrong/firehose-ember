@@ -12,7 +12,7 @@ export default class LinkDetail extends Component {
     if (event) {
       event.preventDefault();
     }
-    link.set('read', true);
+    link.read = true;
     await link.save();
   }
 
@@ -23,7 +23,7 @@ export default class LinkDetail extends Component {
     if (event) {
       event.preventDefault();
     }
-    link.set('read', false);
+    link.read = false;
     await link.save();
   }
 
