@@ -7,6 +7,8 @@ export default class LinkFormComponent extends Component {
   @service store;
 
   get buffer() {
+    // caching okay in a getter
+    // eslint-disable-next-line ember/no-side-effects
     return (this._buffer ??= BufferedProxy.create({
       content: this.args.link,
     }));
