@@ -2,13 +2,13 @@
   <li class="list-group-item clearfix h-entry">
     {{#if this.editing}}
       <LinkForm
-        @link={{this.link}}
+        @link={{@link}}
         @onSave={{fn this.finishEditing}}
         @onCancel={{fn this.finishEditing}}
       />
     {{else}}
       <LinkDetail
-        @link={{this.link}}
+        @link={{@link}}
         @onEdit={{fn this.edit}}
       />
     {{/if}}
