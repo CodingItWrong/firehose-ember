@@ -18,9 +18,7 @@ Router.map(function () {
     });
   });
   this.route('tags', function () {
-    this.route('index', { path: '/' }, function () {
-      this.route('data', { path: '/' });
-    });
+    this.route('index', { path: '/' });
     this.route('show', { path: '/:tag_name' }, function () {
       this.route('data', { path: '/' });
     });
