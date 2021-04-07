@@ -1,7 +1,7 @@
 <BsForm
   @formLayout="vertical"
   @model={{this.buffer}}
-  @onSubmit={{fn this.handleSave}} as |Form|
+  @onSubmit={{this.handleSave}} as |Form|
 >
   <div class="form-group">
     <label>URL</label>
@@ -64,7 +64,7 @@
     <BsButton
       type="button"
       @type="light"
-      @onClick={{fn this.handleCancel}}
+      @onClick={{this.handleCancel}}
       data-test-cancel-button
     >
       Cancel

@@ -3,13 +3,13 @@
     {{#if this.editing}}
       <LinkForm
         @link={{@link}}
-        @onSave={{fn this.finishEditing}}
-        @onCancel={{fn this.finishEditing}}
+        @onSave={{this.finishEditing}}
+        @onCancel={{this.finishEditing}}
       />
     {{else}}
       <LinkDetail
         @link={{@link}}
-        @onEdit={{fn this.edit}}
+        @onEdit={{this.edit}}
       />
     {{/if}}
   </li>
