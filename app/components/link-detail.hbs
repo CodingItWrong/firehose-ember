@@ -18,7 +18,7 @@
   {{#if @link.tags}}
     |
     {{#each @link.tags as |tag|}}
-      <LinkTo @route="tags.show" @model={{tag.name}} @classNames="p-category">{{ tag.name }}</LinkTo>
+      <LinkTo @route="tags.show" @model={{tag.name}} class="p-category">{{ tag.name }}</LinkTo>
     {{/each}}
   {{/if}}
   {{#if @link.source}}
@@ -78,7 +78,7 @@
       {{#if @link.read}}
         <BsButton
           @type="light"
-          @onClick={{fn this.markUnread}}
+          @onClick={{this.markUnread}}
           data-test-button-mark-unread
         >
           Mark Unread
@@ -86,7 +86,7 @@
       {{else}}
         <BsButton
           @type="light"
-          @onClick={{fn this.markRead}}
+          @onClick={{this.markRead}}
           data-test-button-mark-read
         >
           Mark Read
@@ -94,14 +94,14 @@
       {{/if}}
       <BsButton
         @type="light"
-        @onClick={{fn this.edit}}
+        @onClick={{this.edit}}
         data-test-button-edit
       >
         Edit
       </BsButton>
       <BsButton
         @type="danger"
-        @onClick={{fn this.delete}}
+        @onClick={{this.delete}}
         data-test-button-delete
       >
         Delete

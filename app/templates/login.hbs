@@ -9,7 +9,7 @@
 <BsForm
   @formLayout="vertical"
   @model={{this}}
-  @onSubmit={{fn this.authenticate}} as |Form|
+  @onSubmit={{this.authenticate}} as |Form|
 >
   <Form.element
     @controlType="text"
