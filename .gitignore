@@ -26,3 +26,5 @@
 
 # ember-cli-bundle-analyzer
 /concat-stats-for/
+
+.eslintcache
