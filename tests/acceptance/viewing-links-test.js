@@ -1,16 +1,15 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
-import { visit, find, click } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-mocha';
+import { click, visit } from '@ember/test-helpers';
+import { module as describe, test as it } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { authenticateSession } from 'ember-simple-auth/test-support';
 
-describe('viewing links', function () {
-  let hooks = setupApplicationTest();
+describe('Acceptance | viewing links', function (hooks) {
+  setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  it('displays read and unread links', async function () {
-    let tag = server.create('tag', { name: 'foo' });
+  it('displays read and unread links', async function (assert) {
+    let tag = server.create('tag', { name: 'my-tag' });
     let unreadLink = server.create('bookmark', {
       title: 'My Unread Link',
       read: false,
@@ -24,24 +23,18 @@ describe('viewing links', function () {
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
 
-    let link = find('[data-test-links]');
-
-    expect(link).to.contain.text(unreadLink.title);
-    expect(link).not.to.contain.text(readLink.title);
+    assert.dom('[data-test-links]').includesText(unreadLink.title);
+    assert.dom('[data-test-links]').doesNotIncludeText(readLink.title);
 
     await click('[data-test-read-link]');
 
-    link = find('[data-test-links]');
-
-    expect(link).to.contain.text(readLink.title);
-    expect(link).not.to.contain.text(unreadLink.title);
+    assert.dom('[data-test-links]').includesText(readLink.title);
+    assert.dom('[data-test-links]').doesNotIncludeText(unreadLink.title);
 
     await click('[data-test-unread-link]');
 
-    link = find('[data-test-links]');
-
-    expect(link).to.contain.text(unreadLink.title);
-    expect(link).to.contain.text('foo');
-    expect(link).not.to.contain.text(readLink.title);
+    assert.dom('[data-test-links]').includesText(unreadLink.title);
+    assert.dom('[data-test-links]').doesNotIncludeText(readLink.title);
+    assert.dom('[data-test-links]').includesText('my-tag');
   });
 });

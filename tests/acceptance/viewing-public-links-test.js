@@ -1,14 +1,13 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
-import { visit, find } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-mocha';
+import { visit } from '@ember/test-helpers';
+import { module as describe, test as it } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
-describe('viewing public links', function () {
-  let hooks = setupApplicationTest();
+describe('Acceptance | viewing public links', function (hooks) {
+  setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  it('displays all public links', async function () {
+  it('displays all public links', async function (assert) {
     let unreadLink = server.create('bookmark', {
       title: 'My Unread Link',
       read: false,
@@ -21,10 +20,8 @@ describe('viewing public links', function () {
 
     await visit('/');
 
-    let linkElement = find('[data-test-links]');
-
     for (let link of linkModels) {
-      expect(linkElement).to.contain.text(link.title);
+      assert.dom('[data-test-links]').includesText(link.title);
     }
   });
 });

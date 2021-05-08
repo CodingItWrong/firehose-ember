@@ -1,18 +1,17 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
-import { visit, find, findAll, click, fillIn } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-mocha';
+import { click, findAll, fillIn, visit } from '@ember/test-helpers';
+import { module as describe, test as it } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import {
   authenticateSession,
   invalidateSession,
 } from 'ember-simple-auth/test-support';
 
-describe('public link sorting', function () {
-  let hooks = setupApplicationTest();
+describe('Acceptance | public link sorting', function (hooks) {
+  setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  it('sorts public lists in the order published', async function () {
+  it('sorts public lists in the order published', async function (assert) {
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
 
@@ -34,7 +33,6 @@ describe('public link sorting', function () {
 
     await invalidateSession();
 
-    let linkText = find('[data-test-links]').textContent;
-    expect(linkText).to.match(/first[\s\S]+second/);
+    assert.dom('[data-test-links]').hasText(/first[\s\S]+second/);
   });
 });

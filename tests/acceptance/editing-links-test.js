@@ -1,15 +1,14 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
-import { visit, find, click, fillIn } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-mocha';
+import { click, fillIn, visit } from '@ember/test-helpers';
+import { module as describe, test as it } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { authenticateSession } from 'ember-simple-auth/test-support';
 
-describe('editing links', function () {
-  let hooks = setupApplicationTest();
+describe('Acceptance | editing links', function (hooks) {
+  setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  it('allows adding links', async function () {
+  it('allows adding links', async function (assert) {
     await authenticateSession({ access_token: 'ABC123' });
     await visit('/');
 
@@ -17,25 +16,20 @@ describe('editing links', function () {
     await fillIn('[data-test-url]', 'https://www.example.com');
     await click('[data-test-add-button]');
 
-    let link = find('[data-test-links]');
-
-    expect(link).to.contain.text('My Link Title');
+    assert.dom('[data-test-links]').includesText('My Link Title');
 
     // mark read
     await click('[data-test-button-mark-read]');
-    link = find('[data-test-links]');
-    expect(link).not.to.contain.text('My Link Title');
+    assert.dom('[data-test-links]').doesNotIncludeText('My Link Title');
 
     await click('[data-test-read-link]');
-    link = find('[data-test-links]');
-    expect(link).to.contain.text('My Link Title');
+    assert.dom('[data-test-links]').includesText('My Link Title');
 
     // mark unread
     await click('[data-test-button-mark-unread]');
 
     await click('[data-test-unread-link]');
-    link = find('[data-test-links]');
-    expect(link).to.contain.text('My Link Title');
+    assert.dom('[data-test-links]').includesText('My Link Title');
 
     // edit
     const title = 'Updated Title';
@@ -45,8 +39,7 @@ describe('editing links', function () {
     await fillIn('[data-test-tags] input', 'foo bar');
     await click('[data-test-save-button]');
 
-    link = find('[data-test-links]');
-    expect(link).to.contain.text(title);
+    assert.dom('[data-test-links]').includesText(title);
 
     // would require mirage wizardry to test
     // expect(link).to.contain.text('foo')
@@ -57,12 +50,10 @@ describe('editing links', function () {
     await fillIn('[data-test-title] input', 'Title Update to Cancel');
     await click('[data-test-cancel-button]');
 
-    link = find('[data-test-links]');
-    expect(link).to.contain.text(title);
+    assert.dom('[data-test-links]').includesText(title);
 
     // delete
     await click('[data-test-button-delete]');
-    link = find('[data-test-links]');
-    expect(link).not.to.contain.text(title);
+    assert.dom('[data-test-links]').doesNotIncludeText(title);
   });
 });
