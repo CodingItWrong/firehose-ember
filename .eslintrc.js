@@ -25,6 +25,7 @@ module.exports = {
   rules: {
     camelcase: 'off', // for destructuring underscored values
     'import/order': ['warn', { alphabetize: { order: 'asc' } }], // group and then alphabetize lines - https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
+    'no-duplicate-imports': 'error',
     'require-await': 'off', // for consistency in rendering tests
     'sort-imports': [
       'warn',
