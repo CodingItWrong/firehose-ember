@@ -13,7 +13,7 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: ['ember'],
+  plugins: ['ember', 'import'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -24,7 +24,12 @@ module.exports = {
   },
   rules: {
     camelcase: 'off', // for destructuring underscored values
+    'import/order': ['warn', { alphabetize: { order: 'asc' } }], // group and then alphabetize lines - https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
     'require-await': 'off', // for consistency in rendering tests
+    'sort-imports': [
+      'warn',
+      { ignoreDeclarationSort: true, ignoreMemberSort: false },
+    ], // alphabetize named imports - https://eslint.org/docs/rules/sort-imports
   },
   overrides: [
     // node files
