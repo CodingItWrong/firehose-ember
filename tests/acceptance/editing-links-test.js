@@ -1,8 +1,8 @@
 import { click, fillIn, visit } from '@ember/test-helpers';
-import { module as describe, test as it } from 'qunit';
-import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import { setupApplicationTest } from 'ember-qunit';
 import { authenticateSession } from 'ember-simple-auth/test-support';
+import { module as describe, test as it } from 'qunit';
 
 describe('Acceptance | editing links', function (hooks) {
   setupApplicationTest(hooks);

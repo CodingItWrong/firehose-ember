@@ -1,5 +1,5 @@
-import { module as describe, test as it } from 'qunit';
 import { domain } from 'firehose/helpers/domain';
+import { module as describe, test as it } from 'qunit';
 
 describe('Unit | Helper | domain', () => {
   it('retrieves just the domain', function (assert) {

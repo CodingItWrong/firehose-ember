@@ -1,7 +1,7 @@
 import { visit } from '@ember/test-helpers';
-import { module as describe, test as it } from 'qunit';
-import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import { setupApplicationTest } from 'ember-qunit';
+import { module as describe, test as it } from 'qunit';
 
 describe('Acceptance | viewing public links', function (hooks) {
   setupApplicationTest(hooks);
