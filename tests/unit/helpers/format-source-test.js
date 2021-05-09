@@ -1,5 +1,5 @@
-import { module as describe, test as it } from 'qunit';
 import { formatSource } from 'firehose/helpers/format-source';
+import { module as describe, test as it } from 'qunit';
 
 describe('Unit | Helper | formatSource', () => {
   it('formats URLs as a link', function (assert) {
