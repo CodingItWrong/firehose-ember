@@ -29,3 +29,5 @@
 /concat-stats-for/
 
 .eslintcache
+
+.DS_Store
