@@ -80,7 +80,7 @@
     "prettier": "2.3.0",
     "qunit": "^2.15.0",
     "qunit-dom": "^1.6.0",
-    "serialize-javascript": "^5.0.1"
+    "serialize-javascript": "^6.0.0"
   },
   "engines": {
     "node": "10.* || >= 12"
