@@ -5788,12 +5788,13 @@ ember-bootstrap@4.9.0:
     silent-error "^1.0.1"
     tracked-toolbox "^1.2.3"
 
-ember-buffered-proxy@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/ember-buffered-proxy/-/ember-buffered-proxy-1.0.1.tgz#887064814fccee77cf4edd5902243d1c45cb7577"
-  integrity sha512-rWmFq6OjFEAo3CRSSKRENApxz24prqQDj8ET8QhU8Yw2kttqR+Y1edyWcI9iLJi+01s/jv7DRj7kkOXzQbIGUQ==
+ember-buffered-proxy@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ember-buffered-proxy/-/ember-buffered-proxy-2.0.0.tgz#24843a0ced529887fde8b4a1cde5b11b1a696172"
+  integrity sha512-xnVtIFIbuhwSwULVxqGuw1SVLC39eikrH9v/LWZYRarfI/oZ3ptPAHcr2cirRF4q2/pVkMpup4XWHo+oGLaY8w==
   dependencies:
-    ember-cli-babel "^6.6.0"
+    ember-cli-babel "^7.26.6"
+    ember-cli-htmlbars "^5.3.1"
     ember-notify-property-change-polyfill "^0.0.1"
 
 ember-cache-primitive-polyfill@^1.0.0:
