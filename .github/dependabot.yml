@@ -7,15 +7,13 @@ updates:
     time: "10:00"
   open-pull-requests-limit: 10
   ignore:
+  - dependency-name: ember-auto-import
   - dependency-name: ember-cli
-    versions:
-    - "*"
   - dependency-name: ember-data
-    versions:
-    - "*"
   - dependency-name: ember-source
+  - dependency-name: eslint
     versions:
-    - "*"
+    - 8.x
   - dependency-name: "@glimmer/tracking"
     versions:
     - 1.0.4
