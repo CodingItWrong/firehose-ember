@@ -1,7 +1,8 @@
 # firehose
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+An open-source web frontend for link saving and sharing. Allows you to own and share your own content. See an example at [links.codingitwrong.com](https://links.codingitwrong.com)!
+
+To make use of this frontend, you'll need a backend API. [firehose-api](https://github.com/CodingItWrong/firehose-api) is available.
 
 ## Prerequisites
 
@@ -11,7 +12,6 @@ You will need the following things properly installed on your computer.
 * [Node.js](https://nodejs.org/)
 * [Yarn](https://yarnpkg.com/)
 * [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
 
 ## Installation
 
@@ -22,6 +22,7 @@ You will need the following things properly installed on your computer.
 ## Running / Development
 
 * `ember serve`
+* Run your backend API in another terminal.
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
@@ -50,7 +51,11 @@ Run `ember serve` then visit `http://localhost:4200/_analyze
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+```sh
+$ yarn build
+```
+
+This saves built frontend assets to the `dist/` directory. Copy these to a static site hosting service.
 
 ## Further Reading / Useful Links
 
