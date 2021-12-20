@@ -1,4 +1,4 @@
-# firehose
+# firehose-ember
 
 An open-source web frontend for link saving and sharing. Allows you to own and share your own content. See an example at [links.codingitwrong.com](https://links.codingitwrong.com)!
 
