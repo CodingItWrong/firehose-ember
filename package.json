@@ -30,7 +30,7 @@
     "@ember/test-helpers": "^2.7.0",
     "@glimmer/component": "^1.1.0",
     "@glimmer/tracking": "^1.1.0",
-    "acorn": "^8.7.0",
+    "acorn": "^8.7.1",
     "babel-eslint": "^10.1.0",
     "bootstrap": "^4.6.0",
     "broccoli-asset-rev": "^3.0.0",
